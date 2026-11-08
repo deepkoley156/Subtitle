@@ -990,7 +990,9 @@ setInterval(refresh, 1500); refresh();
 </script></body></html>
 """
 
+import os
+
 if __name__ == "__main__":
-    url = "http://127.0.0.1:5002"
-    print("Open " + url + " in your browser")
-    app.run(host="127.0.0.1", port=5002, debug=False, threaded=True, use_reloader=False)
+    port = int(os.environ.get("PORT", 5002))
+    app.run(host="0.0.0.0", port=port, debug=False, threaded=True, use_reloader=False)
+
